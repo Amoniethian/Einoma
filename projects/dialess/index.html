@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dialess | 作品集</title>
+    <title>Dialess | Portfolio</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+    <div class="ripple-container"></div>
+
     <header class="project-header">
-        <div class="container">
-            <a href="../../index.html" class="back-link">
-                <span>&larr;</span> 返回作品集
-            </a>
-            <h1 class="project-page-title">Dialess</h1>
-            <p class="project-page-description">原创角色设计项目</p>
-            <div class="project-meta">
-                <span class="meta-item">类型：原创 / 角色设计</span>
-            </div>
-        </div>
+        <a href="../../index.html" class="back-link">
+            <span>&larr;</span> Back
+        </a>
+        <h1 class="project-page-title">Dialess</h1>
+        <div></div>
     </header>
 
-    <main class="project-content">
-        <div class="container">
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">作品展示</h2>
-                <div class="media-grid">
-                    <!-- 添加图片 -->
+    <div class="project-layout">
+        <aside class="project-sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">About This Work</h3>
+                <p class="sidebar-description">
+                    原创概念设计项目 Dialess。融合独特的视觉语言与叙事风格，构建一个完整的虚构世界观。将鼠标悬停在图片上查看更多信息。
+                </p>
+            </div>
+            <div class="sidebar-meta">
+                <div class="meta-item">
+                    <span>Project</span>
+                    <span>Dialess</span>
                 </div>
-            </section>
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">创作说明</h2>
-                <div class="text-content" data-animate-item>
-                    <p>原创角色设计作品...</p>
+                <div class="meta-item">
+                    <span>Type</span>
+                    <span>Original</span>
                 </div>
-            </section>
+                <div class="meta-item">
+                    <span>Category</span>
+                    <span>Concept Design</span>
+                </div>
+            </div>
+        </aside>
 
-        </div>
-    </main>
+        <main class="masonry-container">
+            <div class="masonry-grid">
+                <div class="masonry-item" data-description="世界观设定 - Dialess 宇宙的视觉基础。">
+                    <img src="assets/images/Dialess (1).png" alt="Dialess 1">
+                    <span class="item-number">#01</span>
+                </div>
+                <div class="masonry-item" data-description="角色设计 - 独特的人物造型与风格。">
+                    <img src="assets/images/Dialess (2).png" alt="Dialess 2">
+                    <span class="item-number">#02</span>
+                </div>
+                <div class="masonry-item" data-description="环境概念 - 构建虚构世界的空间感。">
+                    <img src="assets/images/Dialess (3).png" alt="Dialess 3">
+                    <span class="item-number">#03</span>
+                </div>
+                <div class="masonry-item" data-description="道具设计 - 细节中展现世界观。">
+                    <img src="assets/images/Dialess (4).png" alt="Dialess 4">
+                    <span class="item-number">#04</span>
+                </div>
+                <div class="masonry-item" data-description="氛围图 - 整体视觉风格的呈现。">
+                    <img src="assets/images/Dialess (5).png" alt="Dialess 5">
+                    <span class="item-number">#05</span>
+                </div>
+            </div>
+        </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div class="scroll-progress"></div>
     <script src="../../js/main.js"></script>
 </body>
 </html>

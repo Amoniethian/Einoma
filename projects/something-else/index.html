@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Something Else | 作品集</title>
+    <title>Something Else | Portfolio</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+    <div class="ripple-container"></div>
+
     <header class="project-header">
-        <div class="container">
-            <a href="../../index.html" class="back-link">
-                <span>&larr;</span> 返回作品集
-            </a>
-            <h1 class="project-page-title">Something Else</h1>
-            <p class="project-page-description">实验性创作项目</p>
-            <div class="project-meta">
-                <span class="meta-item">类型：实验 / 艺术</span>
-            </div>
-        </div>
+        <a href="../../index.html" class="back-link">
+            <span>&larr;</span> Back
+        </a>
+        <h1 class="project-page-title">Something Else</h1>
+        <div></div>
     </header>
 
-    <main class="project-content">
-        <div class="container">
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">作品展示</h2>
-                <div class="media-grid">
-                    <!-- 添加图片 -->
+    <div class="project-layout">
+        <aside class="project-sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">About This Work</h3>
+                <p class="sidebar-description">
+                    实验性视觉探索项目。尝试突破传统表现形式的边界，探索新的视觉语言和创作方法。将鼠标悬停在图片上查看更多信息。
+                </p>
+            </div>
+            <div class="sidebar-meta">
+                <div class="meta-item">
+                    <span>Project</span>
+                    <span>Something Else</span>
                 </div>
-            </section>
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">创作说明</h2>
-                <div class="text-content" data-animate-item>
-                    <p>实验性艺术作品集...</p>
+                <div class="meta-item">
+                    <span>Type</span>
+                    <span>Experimental</span>
                 </div>
-            </section>
+                <div class="meta-item">
+                    <span>Category</span>
+                    <span>Visual Art</span>
+                </div>
+            </div>
+        </aside>
 
-        </div>
-    </main>
+        <main class="masonry-container">
+            <div class="masonry-grid">
+                <div class="masonry-item" data-description="实验 #1 - 突破常规的视觉尝试。">
+                    <img src="assets/images/Something_Eles (1).png" alt="Something Else 1">
+                    <span class="item-number">#01</span>
+                </div>
+                <div class="masonry-item" data-description="实验 #2 - 形式与内容的新探索。">
+                    <img src="assets/images/Something_Eles (2).png" alt="Something Else 2">
+                    <span class="item-number">#02</span>
+                </div>
+                <div class="masonry-item" data-description="实验 #3 - 材质与光影的对话。">
+                    <img src="assets/images/Something_Eles (3).png" alt="Something Else 3">
+                    <span class="item-number">#03</span>
+                </div>
+                <div class="masonry-item" data-description="实验 #4 - 抽象与具象的边界。">
+                    <img src="assets/images/Something_Eles (4).png" alt="Something Else 4">
+                    <span class="item-number">#04</span>
+                </div>
+                <div class="masonry-item" data-description="实验 #5 - 无限可能的视觉语言。">
+                    <img src="assets/images/Something_Eles (5).png" alt="Something Else 5">
+                    <span class="item-number">#05</span>
+                </div>
+            </div>
+        </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div class="scroll-progress"></div>
     <script src="../../js/main.js"></script>
 </body>
 </html>

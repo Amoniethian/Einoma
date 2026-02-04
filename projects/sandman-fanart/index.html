@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sandman Fanart | 作品集</title>
+    <title>The Sandman Fanart | Portfolio</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+    <div class="ripple-container"></div>
+
     <header class="project-header">
-        <div class="container">
-            <a href="../../index.html" class="back-link">
-                <span>&larr;</span> 返回作品集
-            </a>
-            <h1 class="project-page-title">The Sandman Fanart</h1>
-            <p class="project-page-description">睡魔同人创作</p>
-            <div class="project-meta">
-                <span class="meta-item">类型：同人 / Sandman</span>
-            </div>
-        </div>
+        <a href="../../index.html" class="back-link">
+            <span>&larr;</span> Back
+        </a>
+        <h1 class="project-page-title">The Sandman</h1>
+        <div></div>
     </header>
 
-    <main class="project-content">
-        <div class="container">
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">作品展示</h2>
-                <div class="media-grid">
-                    <!-- 添加图片 -->
+    <div class="project-layout">
+        <aside class="project-sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">About This Work</h3>
+                <p class="sidebar-description">
+                    尼尔·盖曼《睡魔》(The Sandman) 同人创作。致敬这部传奇漫画与影视作品，捕捉 Morpheus 和 Endless 家族的神秘魅力。将鼠标悬停在图片上查看更多信息。
+                </p>
+            </div>
+            <div class="sidebar-meta">
+                <div class="meta-item">
+                    <span>Project</span>
+                    <span>Sandman Fanart</span>
                 </div>
-            </section>
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">创作说明</h2>
-                <div class="text-content" data-animate-item>
-                    <p>睡魔同人作品集...</p>
+                <div class="meta-item">
+                    <span>Type</span>
+                    <span>Fan Art</span>
                 </div>
-            </section>
+                <div class="meta-item">
+                    <span>Source</span>
+                    <span>Neil Gaiman</span>
+                </div>
+            </div>
+        </aside>
 
-        </div>
-    </main>
+        <main class="masonry-container">
+            <div class="masonry-grid">
+                <div class="masonry-item" data-description="Dream / Morpheus - 梦境之主的威严形象。">
+                    <img src="assets/images/The_Sandman_Fanart (1).png" alt="The Sandman Fanart 1">
+                    <span class="item-number">#01</span>
+                </div>
+                <div class="masonry-item" data-description="Dreaming - 梦境王国的奇幻景象。">
+                    <img src="assets/images/The_Sandman_Fanart (2).png" alt="The Sandman Fanart 2">
+                    <span class="item-number">#02</span>
+                </div>
+                <div class="masonry-item" data-description="Endless - 无尽家族的神秘氛围。">
+                    <img src="assets/images/The_Sandman_Fanart (3).png" alt="The Sandman Fanart 3">
+                    <span class="item-number">#03</span>
+                </div>
+                <div class="masonry-item" data-description="Dark Fantasy - 黑暗奇幻的视觉诠释。">
+                    <img src="assets/images/The_Sandman_Fanart (4).png" alt="The Sandman Fanart 4">
+                    <span class="item-number">#04</span>
+                </div>
+                <div class="masonry-item" data-description="Tribute - 对原作的致敬之作。">
+                    <img src="assets/images/The_Sandman_Fanart (5).png" alt="The Sandman Fanart 5">
+                    <span class="item-number">#05</span>
+                </div>
+            </div>
+        </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div class="scroll-progress"></div>
     <script src="../../js/main.js"></script>
 </body>
 </html>

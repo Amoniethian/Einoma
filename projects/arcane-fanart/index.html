@@ -3,49 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcane Fanart | 作品集</title>
+    <title>Arcane Fanart | Portfolio</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+    <div class="ripple-container"></div>
+
     <header class="project-header">
-        <div class="container">
-            <a href="../../index.html" class="back-link">
-                <span>&larr;</span> 返回作品集
-            </a>
-            <h1 class="project-page-title">Arcane Fanart</h1>
-            <p class="project-page-description">双城之战同人创作</p>
-            <div class="project-meta">
-                <span class="meta-item">类型：同人 / Arcane</span>
-            </div>
-        </div>
+        <a href="../../index.html" class="back-link">
+            <span>&larr;</span> Back
+        </a>
+        <h1 class="project-page-title">Arcane Fanart</h1>
+        <div></div>
     </header>
 
-    <main class="project-content">
-        <div class="container">
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">作品展示</h2>
-                <div class="media-grid">
-                    <!-- 添加图片 -->
+    <div class="project-layout">
+        <aside class="project-sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">About This Work</h3>
+                <p class="sidebar-description">
+                    基于英雄联盟动画《双城之战》(Arcane) 的同人创作。这部动画以其精美的画面和深刻的叙事打动了无数观众，这些作品是对它的致敬。将鼠标悬停在图片上查看更多信息。
+                </p>
+            </div>
+            <div class="sidebar-meta">
+                <div class="meta-item">
+                    <span>Project</span>
+                    <span>Arcane Fanart</span>
                 </div>
-            </section>
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">创作说明</h2>
-                <div class="text-content" data-animate-item>
-                    <p>双城之战同人作品集...</p>
+                <div class="meta-item">
+                    <span>Type</span>
+                    <span>Fan Art</span>
                 </div>
-            </section>
+                <div class="meta-item">
+                    <span>Source</span>
+                    <span>League of Legends</span>
+                </div>
+            </div>
+        </aside>
 
-        </div>
-    </main>
+        <main class="masonry-container">
+            <div class="masonry-grid">
+                <!-- 根据实际图片数量添加，示例格式： -->
+                <div class="masonry-item" data-description="Arcane 同人作品 - 捕捉动画中的经典场景与角色。">
+                    <img src="assets/images/Arcane_Fanart (1).png" alt="Arcane Fanart 1">
+                    <span class="item-number">#01</span>
+                </div>
+                <div class="masonry-item" data-description="角色演绎 - 重新诠释双城之战中的人物。">
+                    <img src="assets/images/Arcane_Fanart (2).png" alt="Arcane Fanart 2">
+                    <span class="item-number">#02</span>
+                </div>
+                <div class="masonry-item" data-description="氛围重现 - 还原动画中独特的视觉风格。">
+                    <img src="assets/images/Arcane_Fanart (3).png" alt="Arcane Fanart 3">
+                    <span class="item-number">#03</span>
+                </div>
+                <div class="masonry-item" data-description="场景致敬 - 对经典画面的个人诠释。">
+                    <img src="assets/images/Arcane_Fanart (4).png" alt="Arcane Fanart 4">
+                    <span class="item-number">#04</span>
+                </div>
+                <div class="masonry-item" data-description="色彩实验 - 探索动画中独特的色彩运用。">
+                    <img src="assets/images/Arcane_Fanart (5).png" alt="Arcane Fanart 5">
+                    <span class="item-number">#05</span>
+                </div>
+                <!-- 继续添加更多图片... -->
+            </div>
+        </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div class="scroll-progress"></div>
     <script src="../../js/main.js"></script>
 </body>
 </html>
