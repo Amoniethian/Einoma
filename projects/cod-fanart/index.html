@@ -3,49 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COD Fanart | 作品集</title>
+    <title>COD Fanart | Portfolio</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+    <div class="ripple-container"></div>
+
     <header class="project-header">
-        <div class="container">
-            <a href="../../index.html" class="back-link">
-                <span>&larr;</span> 返回作品集
-            </a>
-            <h1 class="project-page-title">COD Fanart</h1>
-            <p class="project-page-description">使命召唤同人创作</p>
-            <div class="project-meta">
-                <span class="meta-item">类型：同人 / Call of Duty</span>
-            </div>
-        </div>
+        <a href="../../index.html" class="back-link">
+            <span>&larr;</span> Back
+        </a>
+        <h1 class="project-page-title">COD Fanart</h1>
+        <div></div>
     </header>
 
-    <main class="project-content">
-        <div class="container">
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">作品展示</h2>
-                <div class="media-grid">
-                    <!-- 添加图片 -->
+    <div class="project-layout">
+        <aside class="project-sidebar">
+            <div class="sidebar-content">
+                <h3 class="sidebar-title">About This Work</h3>
+                <p class="sidebar-description">
+                    使命召唤 (Call of Duty) 系列同人创作。重现经典战争场景与角色形象，致敬这个陪伴了无数玩家的经典游戏系列。将鼠标悬停在图片上查看更多信息。
+                </p>
+            </div>
+            <div class="sidebar-meta">
+                <div class="meta-item">
+                    <span>Project</span>
+                    <span>COD Fanart</span>
                 </div>
-            </section>
-
-            <section class="project-section" data-animate>
-                <h2 class="section-title">创作说明</h2>
-                <div class="text-content" data-animate-item>
-                    <p>使命召唤同人作品集...</p>
+                <div class="meta-item">
+                    <span>Type</span>
+                    <span>Fan Art</span>
                 </div>
-            </section>
+                <div class="meta-item">
+                    <span>Source</span>
+                    <span>Call of Duty</span>
+                </div>
+            </div>
+        </aside>
 
-        </div>
-    </main>
+        <main class="masonry-container">
+            <div class="masonry-grid">
+                <div class="masonry-item" data-description="战场瞬间 - 捕捉紧张刺激的战斗场面。">
+                    <img src="assets/images/COD_Fanart (1).png" alt="COD Fanart 1">
+                    <span class="item-number">#01</span>
+                </div>
+                <div class="masonry-item" data-description="角色演绎 - 重新诠释游戏中的经典角色。">
+                    <img src="assets/images/COD_Fanart (2).png" alt="COD Fanart 2">
+                    <span class="item-number">#02</span>
+                </div>
+                <div class="masonry-item" data-description="场景重现 - 还原游戏中的标志性场景。">
+                    <img src="assets/images/COD_Fanart (3).png" alt="COD Fanart 3">
+                    <span class="item-number">#03</span>
+                </div>
+                <div class="masonry-item" data-description="氛围营造 - 战争题材的视觉张力。">
+                    <img src="assets/images/COD_Fanart (4).png" alt="COD Fanart 4">
+                    <span class="item-number">#04</span>
+                </div>
+                <div class="masonry-item" data-description="致敬经典 - 对游戏系列的个人诠释。">
+                    <img src="assets/images/COD_Fanart (5).png" alt="COD Fanart 5">
+                    <span class="item-number">#05</span>
+                </div>
+            </div>
+        </main>
+    </div>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div class="scroll-progress"></div>
     <script src="../../js/main.js"></script>
 </body>
 </html>

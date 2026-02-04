@@ -3,156 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品集 | Portfolio</title>
+    <title>Portfolio | 作品集</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- 水滴动画容器 -->
+    <div class="ripple-container"></div>
+
+    <!-- 页面加载动画 -->
+    <div class="page-loader">
+        <div class="loader-ring"></div>
+    </div>
+
+    <!-- 头部 -->
     <header class="site-header">
-        <div class="container">
-            <h1 class="site-title">我的作品集</h1>
-            <p class="site-description">探索我的创意项目</p>
-        </div>
+        <h1 class="site-title">Portfolio</h1>
+        <p class="site-subtitle">Creative Works Collection</p>
     </header>
 
-    <main class="container">
-        <section class="projects-grid" id="projects">
+    <!-- 项目列表 -->
+    <main class="projects-list">
 
-            <!-- Abebe -->
-            <article class="project-card" data-project="abebe">
-                <div class="project-thumbnail">
-                    <img src="projects/abebe/assets/images/cover.jpg" alt="Abebe">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Abebe</h2>
-                    <p class="project-description">原创作品项目</p>
-                    <div class="project-tags">
-                        <span class="tag">原创</span>
-                        <span class="tag">插画</span>
-                    </div>
-                    <a href="projects/abebe/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Abebe -->
+        <article class="project-strip" onclick="location.href='projects/abebe/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/abebe/assets/images/Abebe (1).png')"></div>
+            <h2 class="strip-title">Abebe</h2>
+            <div class="strip-info">
+                <h3>Abebe</h3>
+                <p>一个充满赛博朋克氛围的场景设计项目，包含多个精心设计的室内外环境场景。</p>
+                <a href="projects/abebe/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- Arcane Fanart -->
-            <article class="project-card" data-project="arcane-fanart">
-                <div class="project-thumbnail">
-                    <img src="projects/arcane-fanart/assets/images/cover.jpg" alt="Arcane Fanart">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Arcane Fanart</h2>
-                    <p class="project-description">双城之战同人创作</p>
-                    <div class="project-tags">
-                        <span class="tag">同人</span>
-                        <span class="tag">Arcane</span>
-                    </div>
-                    <a href="projects/arcane-fanart/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Arcane Fanart -->
+        <article class="project-strip" onclick="location.href='projects/arcane-fanart/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/arcane-fanart/assets/images/Arcane_Fanart (1).png')"></div>
+            <h2 class="strip-title">Arcane Fanart</h2>
+            <div class="strip-info">
+                <h3>Arcane Fanart</h3>
+                <p>基于英雄联盟动画《双城之战》的同人创作，致敬这部震撼人心的动画作品。</p>
+                <a href="projects/arcane-fanart/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- Back To Where -->
-            <article class="project-card" data-project="back-to-where">
-                <div class="project-thumbnail">
-                    <img src="projects/back-to-where/assets/images/cover.jpg" alt="Back To Where">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Back To Where</h2>
-                    <p class="project-description">原创项目作品</p>
-                    <div class="project-tags">
-                        <span class="tag">原创</span>
-                        <span class="tag">概念艺术</span>
-                    </div>
-                    <a href="projects/back-to-where/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Back To Where -->
+        <article class="project-strip" onclick="location.href='projects/back-to-where/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/back-to-where/assets/images/Back_To_Where (1).png')"></div>
+            <h2 class="strip-title">Back To Where</h2>
+            <div class="strip-info">
+                <h3>Back To Where</h3>
+                <p>一段关于回忆与归途的视觉叙事，探索时间与空间的交错。</p>
+                <a href="projects/back-to-where/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- COD Fanart -->
-            <article class="project-card" data-project="cod-fanart">
-                <div class="project-thumbnail">
-                    <img src="projects/cod-fanart/assets/images/cover.jpg" alt="COD Fanart">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">COD Fanart</h2>
-                    <p class="project-description">使命召唤同人创作</p>
-                    <div class="project-tags">
-                        <span class="tag">同人</span>
-                        <span class="tag">Call of Duty</span>
-                    </div>
-                    <a href="projects/cod-fanart/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- COD Fanart -->
+        <article class="project-strip" onclick="location.href='projects/cod-fanart/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/cod-fanart/assets/images/COD_Fanart (1).png')"></div>
+            <h2 class="strip-title">COD Fanart</h2>
+            <div class="strip-info">
+                <h3>COD Fanart</h3>
+                <p>使命召唤系列同人创作，重现经典战争场景与角色形象。</p>
+                <a href="projects/cod-fanart/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- Dialess -->
-            <article class="project-card" data-project="dialess">
-                <div class="project-thumbnail">
-                    <img src="projects/dialess/assets/images/cover.jpg" alt="Dialess">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Dialess</h2>
-                    <p class="project-description">原创项目作品</p>
-                    <div class="project-tags">
-                        <span class="tag">原创</span>
-                        <span class="tag">角色设计</span>
-                    </div>
-                    <a href="projects/dialess/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Dialess -->
+        <article class="project-strip" onclick="location.href='projects/dialess/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/dialess/assets/images/Dialess (1).png')"></div>
+            <h2 class="strip-title">Dialess</h2>
+            <div class="strip-info">
+                <h3>Dialess</h3>
+                <p>原创概念设计项目，融合独特的视觉语言与叙事风格。</p>
+                <a href="projects/dialess/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- Something Else -->
-            <article class="project-card" data-project="something-else">
-                <div class="project-thumbnail">
-                    <img src="projects/something-else/assets/images/cover.jpg" alt="Something Else">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Something Else</h2>
-                    <p class="project-description">实验性创作项目</p>
-                    <div class="project-tags">
-                        <span class="tag">实验</span>
-                        <span class="tag">艺术</span>
-                    </div>
-                    <a href="projects/something-else/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Something Else -->
+        <article class="project-strip" onclick="location.href='projects/something-else/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/something-else/assets/images/Something_Eles (1).png')"></div>
+            <h2 class="strip-title">Something Else</h2>
+            <div class="strip-info">
+                <h3>Something Else</h3>
+                <p>实验性视觉探索，尝试突破传统表现形式的边界。</p>
+                <a href="projects/something-else/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- The Sandman Fanart -->
-            <article class="project-card" data-project="sandman-fanart">
-                <div class="project-thumbnail">
-                    <img src="projects/sandman-fanart/assets/images/cover.jpg" alt="The Sandman Fanart">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">The Sandman Fanart</h2>
-                    <p class="project-description">睡魔同人创作</p>
-                    <div class="project-tags">
-                        <span class="tag">同人</span>
-                        <span class="tag">Sandman</span>
-                    </div>
-                    <a href="projects/sandman-fanart/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- The Sandman Fanart -->
+        <article class="project-strip" onclick="location.href='projects/sandman-fanart/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/sandman-fanart/assets/images/The_Sandman_Fanart (1).png')"></div>
+            <h2 class="strip-title">The Sandman</h2>
+            <div class="strip-info">
+                <h3>The Sandman Fanart</h3>
+                <p>尼尔·盖曼《睡魔》同人创作，致敬这部传奇漫画与影视作品。</p>
+                <a href="projects/sandman-fanart/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-            <!-- Videos -->
-            <article class="project-card" data-project="videos">
-                <div class="project-thumbnail">
-                    <img src="projects/videos/assets/images/cover.jpg" alt="Videos">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Videos</h2>
-                    <p class="project-description">视频作品合集</p>
-                    <div class="project-tags">
-                        <span class="tag">视频</span>
-                        <span class="tag">动画</span>
-                    </div>
-                    <a href="projects/videos/index.html" class="project-link">查看详情</a>
-                </div>
-            </article>
+        <!-- Videos -->
+        <article class="project-strip" onclick="location.href='projects/videos/index.html'">
+            <div class="strip-bg" style="background-image: url('projects/videos/assets/images/cover.png')"></div>
+            <h2 class="strip-title">Videos</h2>
+            <div class="strip-info">
+                <h3>Videos</h3>
+                <p>视频与动画作品合集，记录动态影像的创作探索。</p>
+                <a href="projects/videos/index.html" class="view-btn">View Project</a>
+            </div>
+        </article>
 
-        </section>
     </main>
 
+    <!-- 页脚 -->
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2024 我的作品集. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
     </footer>
+
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress"></div>
 
     <script src="js/main.js"></script>
 </body>

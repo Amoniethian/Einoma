@@ -1,200 +1,191 @@
 // ===== 页面加载完成后初始化 =====
 document.addEventListener('DOMContentLoaded', function() {
-    initLightbox();
-    initScrollAnimations();
+    initPageLoader();
+    initRippleEffect();
     initScrollProgress();
-    initBackToTop();
-    initCursorGlow();
-    initParallax();
-    initSmoothScroll();
+    initLightbox();
+    initSidebarHover();
 });
 
-// ===== 图片灯箱功能 =====
+// ===== 页面加载动画 =====
+function initPageLoader() {
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500);
+        });
+    }
+}
+
+// ===== 水滴点击动画效果 =====
+function initRippleEffect() {
+    const container = document.querySelector('.ripple-container');
+    if (!container) return;
+
+    document.addEventListener('click', (e) => {
+        // 不在按钮和链接上触发水滴效果
+        if (e.target.closest('a, button, .view-btn')) return;
+
+        createRipple(e.clientX, e.clientY, container);
+    });
+}
+
+function createRipple(x, y, container) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+
+    // 随机大小
+    const size = Math.random() * 100 + 150;
+    ripple.style.width = size + 'px';
+    ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+
+    container.appendChild(ripple);
+
+    // 动画结束后移除
+    ripple.addEventListener('animationend', () => {
+        ripple.remove();
+    });
+
+    // 创建多个小水滴
+    for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+            createSmallRipple(x, y, container);
+        }, i * 100);
+    }
+}
+
+function createSmallRipple(x, y, container) {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+
+    const size = Math.random() * 50 + 30;
+    const offsetX = (Math.random() - 0.5) * 100;
+    const offsetY = (Math.random() - 0.5) * 100;
+
+    ripple.style.width = size + 'px';
+    ripple.style.height = size + 'px';
+    ripple.style.left = (x + offsetX) + 'px';
+    ripple.style.top = (y + offsetY) + 'px';
+    ripple.style.animationDuration = '1s';
+
+    container.appendChild(ripple);
+
+    ripple.addEventListener('animationend', () => {
+        ripple.remove();
+    });
+}
+
+// ===== 滚动进度条 =====
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    });
+}
+
+// ===== 图片灯箱 =====
 function initLightbox() {
+    // 创建灯箱元素
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
     lightbox.innerHTML = `
         <span class="lightbox-close">&times;</span>
         <img src="" alt="放大图片">
+        <video controls style="display:none;"></video>
     `;
     document.body.appendChild(lightbox);
 
     const lightboxImg = lightbox.querySelector('img');
+    const lightboxVideo = lightbox.querySelector('video');
     const lightboxClose = lightbox.querySelector('.lightbox-close');
 
     // 点击图片打开灯箱
-    document.querySelectorAll('.media-item img').forEach(img => {
-        img.addEventListener('click', function() {
-            lightboxImg.src = this.src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.masonry-item');
+        if (!item) return;
+
+        const img = item.querySelector('img');
+        const video = item.querySelector('video');
+
+        if (img) {
+            lightboxImg.src = img.src;
+            lightboxImg.style.display = 'block';
+            lightboxVideo.style.display = 'none';
+            lightboxVideo.pause();
+        } else if (video) {
+            lightboxVideo.src = video.querySelector('source')?.src || video.src;
+            lightboxVideo.style.display = 'block';
+            lightboxImg.style.display = 'none';
+        }
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
 
     // 关闭灯箱
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        lightboxVideo.pause();
     }
 
-    lightbox.addEventListener('click', closeLightbox);
-    lightboxClose.addEventListener('click', closeLightbox);
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeLightbox();
-    });
-
-    lightboxImg.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-}
-
-// ===== 滚动动画 =====
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // 延迟动画以创建级联效果
-                setTimeout(() => {
-                    entry.target.classList.add('animated');
-                }, index * 100);
-
-                // 子元素动画
-                const items = entry.target.querySelectorAll('[data-animate-item]');
-                items.forEach((item, i) => {
-                    setTimeout(() => {
-                        item.classList.add('animated');
-                    }, (index * 100) + (i * 150));
-                });
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('[data-animate]').forEach(el => {
-        observer.observe(el);
-    });
-
-    // 单独观察卡片元素
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.style.animationPlayState = 'paused';
-        cardObserver.observe(card);
-    });
-}
-
-// ===== 滚动进度条 =====
-function initScrollProgress() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        progressBar.style.width = progress + '%';
-    });
-}
-
-// ===== 返回顶部按钮 =====
-function initBackToTop() {
-    const backToTop = document.createElement('button');
-    backToTop.className = 'back-to-top';
-    backToTop.innerHTML = '&uarr;';
-    backToTop.setAttribute('aria-label', '返回顶部');
-    document.body.appendChild(backToTop);
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightboxClose) {
+            closeLightbox();
         }
     });
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
     });
 }
 
-// ===== 鼠标跟随光效 =====
-function initCursorGlow() {
-    // 仅在桌面端启用
-    if (window.innerWidth < 768) return;
+// ===== 侧边栏悬停效果 =====
+function initSidebarHover() {
+    const sidebar = document.querySelector('.project-sidebar');
+    const description = document.querySelector('.sidebar-description');
+    if (!sidebar || !description) return;
 
-    const glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    document.body.appendChild(glow);
+    const defaultText = description.textContent;
 
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        glow.classList.add('active');
-    });
-
-    document.addEventListener('mouseleave', () => {
-        glow.classList.remove('active');
-    });
-
-    // 平滑跟随效果
-    function animateGlow() {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-        glow.style.left = glowX + 'px';
-        glow.style.top = glowY + 'px';
-        requestAnimationFrame(animateGlow);
-    }
-    animateGlow();
-}
-
-// ===== 视差效果 =====
-function initParallax() {
-    const header = document.querySelector('.site-header, .project-header');
-    if (!header) return;
-
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const rate = scrolled * 0.5;
-        header.style.backgroundPosition = `center ${rate}px`;
-    });
-}
-
-// ===== 平滑滚动 =====
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // 监听所有瀑布流项目的悬停
+    document.querySelectorAll('.masonry-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const desc = item.dataset.description;
+            if (desc) {
+                description.textContent = desc;
+                description.classList.add('active');
             }
+
+            // 移除其他项目的active状态
+            document.querySelectorAll('.masonry-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            // 延迟恢复默认文本，避免闪烁
+            setTimeout(() => {
+                if (!document.querySelector('.masonry-item:hover')) {
+                    description.textContent = defaultText;
+                    description.classList.remove('active');
+                }
+            }, 100);
         });
     });
 }
 
-// ===== 图片懒加载 =====
+// ===== 瀑布流懒加载 =====
 function initLazyLoad() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
+    const images = document.querySelectorAll('.masonry-item img[data-src]');
 
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -205,59 +196,20 @@ function initLazyLoad() {
                 imageObserver.unobserve(img);
             }
         });
+    }, {
+        rootMargin: '50px'
     });
 
-    lazyImages.forEach(img => imageObserver.observe(img));
+    images.forEach(img => imageObserver.observe(img));
 }
 
-// ===== 卡片倾斜效果 =====
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+// ===== 平滑滚动 =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
-
-// ===== 打字机效果（可选使用） =====
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// ===== 数字滚动动画（可选使用） =====
-function animateNumber(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-
-    function update() {
-        current += increment;
-        if (current < target) {
-            element.textContent = Math.floor(current);
-            requestAnimationFrame(update);
-        } else {
-            element.textContent = target;
-        }
-    }
-    update();
-}
